@@ -9,12 +9,15 @@
   %body
     %h1.title Rotten Potatoes!
     
-    - if !@current_user
-      = button_to 'Sign up/Login', login_path, :method => :get, :id => 'signuplogin'
-    - else
-      = button_to 'Logout', logout_path, :method => :delete, id => 'logout'
+    
     
     #main
+    
+      - if !@current_user
+        = button_to 'Sign up/Login', login_path, :method => :get, :id => 'signuplogin'
+      - else
+        = button_to 'Logout', logout_path, :method => :delete, :id => 'logout'
+        
       - if flash[:notice]
         #notice.flash_message= flash[:notice]
       - elsif flash[:warning]
